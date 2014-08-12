@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        
+        <input type="button" id="btn" value="submit" />
+        
+        <script type="text/javascript">
+            var submitBtn = document.getElementById('btn');
+                submitBtn.addEventListener('click', call1);
+                submitBtn.addEventListener('click', call2);
+            
+             function call1(e) {
+                 console.log(e);
+             }
+              function call2() {
+                 console.log('call 2');
+             }
+            
+            var data = {
+                "hello" : 'hey hows it going',
+                "callme" : false
+            };
+            
+                console.log(data.hello);
+                           
+            function changeBGColor() {
+                if ( document.body.style.backgroundColor === 'black') {
+                    document.body.style.backgroundColor = 'white';
+                } else {
+                    document.body.style.backgroundColor = 'black';
+                }
+            }
+            
+           // changeBGColor();
+            
+           // document.addEventListener('click', changeBGColor);
+                        
+           // window.addEventListener('resize', changeBGColor);
+                
+            
+            
+        </script>
+    </body>
+</html>

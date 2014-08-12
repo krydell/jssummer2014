@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        
+        <input type="text" id="email" value="" />
+        
+        
+        <script type="text/javascript">
+            var email = document.getElementById('email');
+                email.addEventListener('blur', saveEmail);
+            function saveEmail() {
+                data.email =  email.value;
+            }
+            
+            var data = {
+              "mouseX" : [],
+              "email" : ''
+            };
+            
+            function trackMouse(e) {
+                data.mouseX.push(e.clientX);
+                console.log(e.clientX);
+                
+                if ( data.mouseX.length > 100 ) {
+                    document.removeEventListener('mousemove', trackMouse);
+                }
+                
+            }
+            
+            
+            document.addEventListener('mousemove', trackMouse);
+            
+            
+        </script>
+        
+    </body>
+</html>
