@@ -1,4 +1,6 @@
 /* 
+ * Karley Vasile 8/12/2014
+ * 
  *We need to collect some data from the user. 
  *Please collect the following data. User input from email field 
  *and name field.  User Screen size, Browser information, page title. 
