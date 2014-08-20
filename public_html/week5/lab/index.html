@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week 5 Lab</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+
+    </head>
+    <body>
+        
+    <form name="mainform" id="mainform" action="">
+	<div id="content">
+	<fieldset>
+		<legend>Personal information:</legend>		
+
+                <label for="name">First name:</label> 
+                <input id="fname" name="name" type="text" size="30" placeholder="First name" /> 
+                <span class="error" id="err_fname"></span> <br /><br />
+                
+                <label for="name">Last name:</label> 
+                <input id="lname" name="name" type="text" size="30" placeholder="Last name" /> 
+                <span class="error" id="err_lname"></span> <br /><br />
+
+                
+                
+                <label for="email">E-mail:</label> 
+                <input id="email" name="email" type="text" size="30" placeholder="sample@email.com"  /> 
+                <span class="error" id="err_email"></span> <br /><br />
+
+                <label for="comments">Comments:</label> 
+                <textarea id="comments" name="comments"></textarea> 
+                <span class="error" id="err_comments"></span> <br /><br />
+
+		<input type="button" value="submit" onclick="submitForm();" />
+            </fieldset>
+         </div>
+
+    </form>
+        <div id="results">
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
