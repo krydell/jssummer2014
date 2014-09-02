@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Karley Vasile / Lab 6 -->
+<html>
+    <head>
+        <title> Week 6 Lab </title>
+        <style type="text/css">
+            .contentBox {
+                width: 300px;
+                margin: 1em;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+    </head>
+    <body>
+
+	<div id="content" class="contentBox"></div>
+
+	<input type="button" id="showResults" value="Show Results" />
+
+	<script type="text/javascript">
+
+		 //http://canvas.site40.net/demopage.html	
+		// XML HTTP Request
+		var xhr = new XMLHttpRequest(); // retrieves data from a URL
+		var content = document.getElementById('content');   //content is the 'content' element
+		var showResults = document.getElementById('showResults');  //showresults is the 'showresults' element, etc
+		var url = "demo.php?page="; 
+                var step = 1;
+		
+                showResults.addEventListener('click',makeAJAXCall); // on click for the showResults button, run the makeAJAXCall func
+		
+		function callback() {
+			var response = xhr.responseText;  // gives 'response' var the response to the HTTP request as text
+						
+			content.innerHTML += response; // puts the stuff it just grabbed into content's HTML
+                        step++; // adds one to the step far
+                        
+
+		}
+		
+		
+		xhr.onreadystatechange = function() { // when the readystate property changes...
+									
+		   if (xhr.readyState==4 && xhr.status==200) { // if readystate is 4 and status is 200  
+			callback();   // run the callback func
+		   } 
+		};  
+		
+		
+                function makeAJAXCall(){
+                    if ( step < 5 ) {   // if the step var is less than 5                   
+                        xhr.open('GET', url+step, true);   // opens the URL with demo.php?page=STEP after it
+                        xhr.send();   
+                    }
+                }
+		
+		
+                
+		window.addEventListener('load', makeAJAXCall); // on load, run the makeAJAXcall
+
+
+                function scrollCheck() {
+			if ( (window.innerHeight + window.scrollY) >= document.body.offsetHeight) { 				
+				makeAJAXCall(); // runs the function if it's scrolled past the offsetheight
+			}
+		}
+		
+		window.addEventListener("scroll", scrollCheck); // on scroll, run scrollCheck
+		
+		
+		
+		 
+
+		
+		
+	</script>
+    </body>
+</html>
