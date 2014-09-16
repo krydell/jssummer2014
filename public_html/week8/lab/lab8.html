@@ -1,0 +1,105 @@
+<!-- 1. Create a new Lab8.html file under your week 8 folder.  
+    Create a Div and 3 buttons on the page.
+    Button 1: Fade in
+    Button 2: Fade out
+    Button 3: Move Div
+    Make sure to give the buttons ID's so you can add an event handler to them.
+
+2. Create an alert message using the alert function
+(alert is a built in JavaScript global function) 
+that will display after the page has been open for 5 seconds.
+use:  alert('hi');
+
+3. Use a timer to run a function that will fade out a div.
+hint: Elem.style.opacity
+    opacity can only take a number between 0 and 1
+    To make it simple it should fade in only 10 steps.
+    10 / 100
+
+4. Create another function that will fade in the same div.
+Hint: you should cancel the previous timer before starting this one
+    
+5.  Create a function that will move the div across the screen.
+hint:  Set the div to be "position: absolute;" in CSS.  
+    in JavaScript you can update the elem.style.left property
+    to increase the position by 10 pixels in a timer.
+    It can continue even until it exits the screen
+    e.g.
+    var divPosLeft = 0;
+    
+    divPosLeft = divPosLeft + 10;
+    elem.style.left = divPosLeft+"px";
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week 8 Lab</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+    </head>
+    <body>
+        
+        <div id="maindiv" style="position:absolute;">
+            Here is some sample text.
+        </div>
+        <p><br/></p>
+        <button id="fadeIn" onclick="fadeInFunc();">Fade In</button>
+        <button id="fadeOut" onclick="fadeOutFunc();">Fade Out</button>
+        <button id="moveDiv" onclick="moveDiv();">Move Div</button>
+        
+        
+        <script type="text/javascript">
+        
+        var maindiv = document.getElementById('maindiv');
+
+        var a = 0;
+
+        function fadeInFunc()
+        {
+
+            if (a <= 100){
+                a += 10;
+                console.log(a);
+                maindiv.style.opacity = a/100;
+                setInterval(fadeInFunc, 100);
+            }
+            else{clearInterval(fadeInFunc);}
+        }
+        
+        var b = 100;        
+   
+        function fadeOutFunc()
+        {
+
+            if (b >= 10){
+                b -= 10;
+                maindiv.style.opacity = b/100;
+                setInterval(fadeOutFunc, 100);
+            }
+            else{clearInterval(fadeOutFunc);}
+            
+        }
+            
+        
+        var h = 20;
+        
+        function moveDiv(){
+
+            if (h < 1000){
+                h += 20;
+                maindiv.style.left = h+"px";
+                setTimeout(moveDiv, 100);
+            }
+            else{clearTimeout(moveDiv);}
+            
+        }
+             
+       fadeOut.addEventListener('click', fadeOutFunc);
+        
+       setTimeout(function() { alert("Hello! This is a delayed alert."); }, 5000); 
+            
+       </script>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            #test {
+                border: 5px solid black;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="test">TODO write content</div>
+        <button id="borderBtn"> Change Border </button>
+        
+        <script type="text/javascript">
+            /* use border Radius to update the #test border until it 
+             * reaches to 20px 
+             * 
+             * Add the function even handler to the #borderBtn to
+             * start the function
+             * 
+             * */
+            
+            var div = document.getElementById('test');
+            var btn = document.getElementById('borderBtn');
+            btn.addEventListener('click', startUpdate);
+            
+            var borderSize = 1;
+            var borderTimer;
+            
+            function updateBorder() {
+                borderSize++;
+                div.style.borderRadius = borderSize + 'px';
+                if ( borderSize > 20 ) {
+                    clearInterval(borderTimer);
+                }
+            }
+            
+            function startUpdate() {
+                borderTimer = setInterval(updateBorder, 200);
+            }
+            
+            
+            alert('hi');
+            
+        </script>
+        
+    </body>
+</html>

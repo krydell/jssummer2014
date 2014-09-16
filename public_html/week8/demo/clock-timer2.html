@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <div id="clock">TODO write content</div>
+        <button id="stopclock">Stop Clock </button>
+        <button id="startclock">Start Clock </button>
+        <script type="text/javascript">
+            
+            var clock = document.getElementById('clock');
+            var clockTimer = setInterval(updateClock, 1000);
+            
+            var stopclock = document.getElementById('stopclock');            
+            stopclock.addEventListener('click', stopClock);
+            
+            var startclock = document.getElementById('startclock');            
+            startclock.addEventListener('click', startClock);
+            
+            function updateClock() {
+                var newdate = new Date();
+                clock.innerHTML = newdate;                
+            }
+            
+            function stopClock() {
+                clearInterval(clockTimer);
+            }
+            
+            function startClock() {
+                clockTimer = setInterval(updateClock, 1000);
+            }
+            
+            
+            
+            
+        </script>
+        
+    </body>
+</html>
