@@ -54,41 +54,40 @@ hint:  Set the div to be "position: absolute;" in CSS.
         
         var maindiv = document.getElementById('maindiv');
 
-        var a = 0;
+        var a = 0; // "a" will be the opacity
 
-        function fadeInFunc()
+        function fadeInFunc() //fade in
         {
 
             if (a <= 100){
-                a += 10;
-                console.log(a);
+                a += 10; // increase opacity
                 maindiv.style.opacity = a/100;
-                setInterval(fadeInFunc, 100);
+                setInterval(fadeInFunc, 100); 
             }
-            else{clearInterval(fadeInFunc);}
+            else{clearInterval(fadeInFunc);} // end fadein
         }
         
-        var b = 100;        
+        var b = 100;    // "b" will be the opacity    
    
         function fadeOutFunc()
         {
 
             if (b >= 10){
-                b -= 10;
+                b -= 10;  // decrease opacity
                 maindiv.style.opacity = b/100;
                 setInterval(fadeOutFunc, 100);
             }
-            else{clearInterval(fadeOutFunc);}
+            else{clearInterval(fadeOutFunc);} // end fadeout
             
         }
             
         
-        var h = 20;
+        var h = 20; // "h" will be the left position of the main div
         
         function moveDiv(){
 
             if (h < 1000){
-                h += 20;
+                h += 20; // move it 20px to the right
                 maindiv.style.left = h+"px";
                 setTimeout(moveDiv, 100);
             }
@@ -96,9 +95,9 @@ hint:  Set the div to be "position: absolute;" in CSS.
             
         }
              
-       fadeOut.addEventListener('click', fadeOutFunc);
+       fadeOut.addEventListener('click', fadeOutFunc); 
         
-       setTimeout(function() { alert("Hello! This is a delayed alert."); }, 5000); 
+       setTimeout(function() { alert("Hello! This is a delayed alert."); }, 5000); // delayed alert to come after 5s
             
        </script>
     </body>
