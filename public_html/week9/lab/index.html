@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 9</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style type="text/css">
+            canvas {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <canvas id="race" width="750" height="150"></canvas>
+        <br />
+        <button id="play" onclick="play();">Play</button>
+        
+        <script type="text/javascript">
+            /*
+                We will be creating a canvas race game. We will have two teams, one red and the other blue, that will race to the finish line.
+
+                Using Canvas create two rectangles, one red and the other blue. They should be the same width and height. 
+                When moving the rectangles make sure to generate a random number to move the x position of each rectangle. 
+                The minimum should always be greater than zero. It should be called twice to get a unique number for each rectangle. 
+                Once the rectangle reaches the finish line, display the winner. A play button should appear to reset the race. 
+                Once the race is started the play button should be hidden again.
+             */
+            
+            var can = document.getElementById('race'); 
+            var ctx = can.getContext('2d');
+
+            function play() // play button func
+            {
+            
+                hidePlay();
+                drawClear();
+                drawRect();
+            
+            }
+            
+            var playbtn = document.getElementById('play');
+            
+            function hidePlay() // puts away play button while function runs
+            {
+                playbtn.style.opacity=0;
+            }
+    
+            function drawClear(){ // clear screen
+                ctx.clearRect(0,0,can.width,can.height);
+                a=0;
+                b=0;
+            }
+
+            var a = 0,
+                b = 0;
+            
+
+            function drawRect(){
+                if(a<=700&&b<=700)
+                {
+                ctx.clearRect(0,0,can.width,can.height);    
+                    
+                ctx.fillStyle = "blue"; 
+                ctx.fillRect(a, 50, 60, 20); // x, y, width, height
+                
+                ctx.fillStyle = "red";
+                ctx.fillRect(b,100,60,20);
+                
+                
+                a += randNum(10);
+
+                b += randNum(10);
+                
+                setTimeout(drawRect, 40); 
+                }
+            
+                else{checkWinner();
+                    clearTimeout(drawRect);
+                    } 
+                
+            }
+            
+            function checkWinner()
+            { if(a>700)
+                {ctx.fillStyle = "blue";
+                ctx.font = "16pt Helvetica";
+                ctx.fillText("Winner is Blue!", 150, can.height-10);}
+             else if(b>700)
+             {ctx.fillStyle = "red";
+                ctx.font = "16pt Helvetica";
+                ctx.fillText("Winner is Red!", 150, can.height-10);}
+             playbtn.style.opacity=1;  
+             }
+   
+           function randNum(max) {
+               return Math.ceil(Math.random()*max) + 1;
+           }
+           
+
+        </script>
+    </body>
+</html>
