@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
-    <body>
+    <body onload="updateData();">
         <form name="mainform" id="mainform" action="" class="basic-grey">
             <div id="content">
                 <fieldset>
@@ -35,11 +35,13 @@
             </div>
         </form>
         <br />
-        <input id="deleteLastRowData" type="button" value="Delete Last Row" />
-        <input id="clearData" type="button" value="Clear All Data" />
-        <br /> <br />
+        <input id="deleteLastRowData" type="button" value="Delete Last Row" onclick="deleteLastRow();" />
+        <input id="clearData" type="button" value="Clear All Data" onclick="localStorage.clear();"/>
+        <br />
+        <span id="deleteResult"></span>
+        <br />
         <div class="CSSTableGenerator">
-            <table>
+            <table id="maintable">
                 <thead>
                     <tr>
                         <th></th>
