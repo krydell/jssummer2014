@@ -71,6 +71,8 @@ function updateData() // update the table
         }
  }
 
+
+
 function submitform() { // submission of initial form
     var fullName = document.getElementById("fullname");
     var fullNameErr = document.getElementById("fullname_err");
@@ -146,7 +148,7 @@ function submitform() { // submission of initial form
     }			
     if (hasErrors === false){
         
-        success.innerHTML = "<p>Information submission was a success, thank you! Refresh the page to show updated records.<p>"; // show inline approved msg
+        success.innerHTML = "<p>Information submission was a success, thank you!<p>"; // show inline approved msg
         
         var idNum = 0; // record ID number
         
@@ -165,6 +167,21 @@ function submitform() { // submission of initial form
         localStorage.setItem("descriptionR"+idNum,  JSON.stringify(description.value));
         
         localStorage.setItem("records", idNum);
+        
+        var table = document.getElementById("maintable");
+                //var rows = 1;       
+        var row = table.insertRow(idNum); // add a row
+
+        var cell0 = row.insertCell(0); // add cells
+        var cell1 = row.insertCell(1);
+        var cell2 = row.insertCell(2);
+        var cell3 = row.insertCell(3);
+        var cell4 = row.insertCell(4);
+        
+        cell1.innerHTML = fullName.value; // update the cell's HTML to show these records
+        cell2.innerHTML = email.value;
+        cell3.innerHTML = phone.value;
+        cell4.innerHTML = description.value;       
         
         contentForm.reset(); // clear form
         
