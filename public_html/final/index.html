@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Midterm/Final</title>
+        <title>Karley Vasile - Midterm/Final</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="style.css" />
@@ -11,6 +11,7 @@
             <div id="content">
                 <fieldset>
                     <legend>Personal information</legend> 
+                    <span id="success_report"></span>
                     <label for="fullname">Name:</label> 
                     <input id="fullname" name="name" type="text" size="30" placeholder="Full name" />
                     <span id="fullname_err"></span>
@@ -24,20 +25,19 @@
                     <span id="phone_err"></span>
 
                     <label for="description">Description:</label> 
-                    <textarea id="description"></textarea>
-                    <span id="description_err"></span>
+                    <textarea id="description" name="description"></textarea> 
+                    <span class="error" id="err_description"></span> <br /><br />
 
+                    <input type="button" value="Submit" onclick="submitform();" />
                     <br />
                     <input id="saveData" type="button" value="Save Data" />
                 </fieldset>
             </div>
         </form>
         <br />
-
         <input id="deleteLastRowData" type="button" value="Delete Last Row" />
         <input id="clearData" type="button" value="Clear All Data" />
         <br /> <br />
-
         <div class="CSSTableGenerator">
             <table>
                 <thead>
@@ -53,7 +53,6 @@
                 </tbody>
             </table>
         </div>
-        
          <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
